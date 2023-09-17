@@ -1,2 +1,3 @@
 # Leetcode
-Problem solving
+Problems of leetcode
+Solutions of mine.
