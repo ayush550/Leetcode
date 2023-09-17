@@ -1,0 +1,50 @@
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. 
+Return the linked list sorted as well.
+
+Example 1:
+Input: head = [1,1,2]
+Output: [1,2]
+
+Example 2:
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+
+Solution:
+
+# **********Approach*********
+Maintain two pointers temp, tail initially both pointing at the start of the list. Move temp with every iteration. But, tail only
+when the values at tail and temp doesnot match. This will ensure that duplicate values doesnot come within the list.
+
+Edge Case: Make the tail->next = NULL at the end of while loop
+Edge Case: If list is NULL or contain only single element simply return the list.
+
+Solution:
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if(head == NULL || head->next == NULL)  return head;
+
+        ListNode* tail = head;
+        ListNode* temp = head;
+
+        while(temp->next != NULL){
+            temp = temp->next;
+            if(temp->val != tail->val){
+                tail->next = temp;
+                tail = temp;
+            }
+        }
+        tail->next = NULL;
+        return head;
+    }
+};
