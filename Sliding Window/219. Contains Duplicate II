@@ -26,9 +26,9 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
 1. Using unordered_map to store value, index pair
-
-
-
+_____________________________
+Code:
+_____________________________
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
